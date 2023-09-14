@@ -36,5 +36,10 @@ namespace ExcelDataReader
         /// Gets or sets a callback to determine whether to transform the cell value.
         /// </summary>
         public Func<IExcelDataReader, int, object, object> TransformValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets a callback to get a unique column name
+        /// </summary>
+        public Func<DataTable, int, name> GetUniqueColumnName { get; set; }
     }
 }

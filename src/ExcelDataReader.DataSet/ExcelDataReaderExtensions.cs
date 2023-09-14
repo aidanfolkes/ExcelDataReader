@@ -100,8 +100,8 @@ namespace ExcelDataReader
                             name = configuration.EmptyColumnNamePrefix + i;
                         }
 
-                        // if a column already exists with the name append _i to the duplicates
-                        var columnName = GetUniqueColumnName(result, name);
+                        // if a column already exists with the name get a unique name for the duplicates
+                        var columnName = configuration.GetUniqueColumnName != null ? configuration.GetUniqueColumnName(result, i, name) : GetUniqueColumnName(result, name);
                         var column = new DataColumn(columnName, typeof(object)) { Caption = name };
                         result.Columns.Add(column);
                         columnIndices.Add(i);
